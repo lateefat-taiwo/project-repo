@@ -14,9 +14,9 @@ app.use(express.static('public'))
 app.get('/create', (req, res) => {
   res.render('create')
 })
-app.get('/home', (req, res) => {
-  res.render('home')
-})
+// app.get('/home', (req, res) => {
+//   res.render('home')
+// })
 
 app.post('/create', async (req, res) => {
 
@@ -31,7 +31,7 @@ app.post('/create', async (req, res) => {
   } else {
     const userdata = await collection.create(data)
     console.log(userdata)
-    res.redirect('/home')
+    res.render('home', { userdata })
   }
 })
 
